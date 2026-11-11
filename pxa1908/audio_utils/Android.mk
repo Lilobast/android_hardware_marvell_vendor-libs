@@ -1,6 +1,7 @@
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
+LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 
 LOCAL_MODULE := libMaudioutil
 LOCAL_MODULE_TAGS := optional
@@ -29,6 +30,7 @@ LOCAL_SHARED_LIBRARIES := \
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
+LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 LOCAL_MODULE := libMaudioutil
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := \

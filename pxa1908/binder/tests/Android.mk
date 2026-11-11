@@ -17,6 +17,7 @@
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
+LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 ifneq ($(TARGET_USES_64_BIT_BINDER),true)
 ifneq ($(TARGET_IS_64_BIT),true)
 LOCAL_CFLAGS += -DBINDER_IPC_32BIT=1
@@ -28,12 +29,14 @@ LOCAL_SRC_FILES := binderDriverInterfaceTest.cpp
 include $(BUILD_NATIVE_TEST)
 
 include $(CLEAR_VARS)
+LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 LOCAL_MODULE := binderLibTest
 LOCAL_SRC_FILES := binderLibTest.cpp
 LOCAL_SHARED_LIBRARIES := libbinder libutils
 include $(BUILD_NATIVE_TEST)
 
 include $(CLEAR_VARS)
+LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 LOCAL_MODULE := binderThroughputTest
 LOCAL_SRC_FILES := binderThroughputTest.cpp
 LOCAL_SHARED_LIBRARIES := libbinder libutils
