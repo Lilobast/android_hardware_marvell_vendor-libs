@@ -2,7 +2,6 @@
 
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
-LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 
 LOCAL_SHARED_LIBRARIES := \
 	liblog \
@@ -21,20 +20,20 @@ LOCAL_MODULE_TAGS := tests
 include $(BUILD_NATIVE_TEST)
 
 include $(CLEAR_VARS)
-LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 LOCAL_SRC_FILES := fifo_tests.cpp
 LOCAL_MODULE := fifo_tests
 LOCAL_C_INCLUDES := $(call include-path-for, audio-utils)
 LOCAL_SHARED_LIBRARIES := libaudioutils
 # libmedia libbinder libcutils libutils
 LOCAL_STATIC_LIBRARIES := libsndfile
+LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
-LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 LOCAL_SRC_FILES := fifo_tests.cpp
 LOCAL_MODULE := fifo_tests
 LOCAL_C_INCLUDES := $(call include-path-for, audio-utils)
 # libmedia libbinder libcutils libutils
 LOCAL_STATIC_LIBRARIES := libsndfile libaudioutils liblog
+LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 include $(BUILD_HOST_EXECUTABLE)

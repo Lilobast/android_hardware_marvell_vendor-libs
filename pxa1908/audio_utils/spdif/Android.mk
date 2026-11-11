@@ -1,7 +1,6 @@
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 
 LOCAL_MODULE := libaudiospdif
 LOCAL_MODULE_TAGS := optional
@@ -19,4 +18,5 @@ LOCAL_SHARED_LIBRARIES := \
 	libcutils \
 	liblog
 
+LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 include $(BUILD_SHARED_LIBRARY)

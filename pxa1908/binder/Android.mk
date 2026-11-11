@@ -50,7 +50,6 @@ endif
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 
 ifeq ($(BOARD_NEEDS_MEMORYHEAPION),true)
 LOCAL_SHARED_LIBRARIES += libion_exynos
@@ -71,10 +70,10 @@ LOCAL_CFLAGS += -DBINDER_IPC_32BIT=1
 endif
 endif
 LOCAL_CFLAGS += -Werror
+LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 
 ifeq ($(BOARD_NEEDS_MEMORYHEAPION),true)
 LOCAL_SHARED_LIBRARIES += libion_exynos
@@ -98,4 +97,5 @@ LOCAL_CFLAGS += -DBINDER_IPC_32BIT=1
 endif
 endif
 LOCAL_CFLAGS += -Werror
+LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 include $(BUILD_STATIC_LIBRARY)

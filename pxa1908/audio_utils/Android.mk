@@ -1,7 +1,6 @@
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 
 LOCAL_MODULE := libMaudioutil
 LOCAL_MODULE_TAGS := optional
@@ -27,10 +26,10 @@ LOCAL_SHARED_LIBRARIES := \
 	liblog \
 	libspeexresampler
 
+LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 LOCAL_MODULE := libMaudioutil
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := \
@@ -43,4 +42,5 @@ LOCAL_SRC_FILES := \
 LOCAL_C_INCLUDES += \
 	$(call include-path-for, audio-utils)
 LOCAL_CFLAGS := -D__unused=
+LOCAL_CFLAGS += -Wno-error  # Pie: legacy Marvell code
 include $(BUILD_HOST_STATIC_LIBRARY)
